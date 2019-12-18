@@ -32,9 +32,13 @@ class App extends Component {
 
   render() {
     const { monsters, searchField } = this.state; //destructuring, pulling properties off of this.state, and setting them to constants called monsters and searchField
-    console.log(Object.values(monsters))
-    const filteredMonsters = monsters.filter(monster => 
-        monster.messages.toLowerCase().includes(searchField.toLowerCase())
+
+    const monstersArray = Object.values(monsters);
+
+    console.log("Monsters array", monstersArray.messages)
+
+    const filteredMonsters = monstersArray.filter(monster => 
+      monster.messages.includes(searchField)
       )
     return (
       <div className='App'>

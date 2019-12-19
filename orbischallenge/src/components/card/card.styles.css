@@ -2,6 +2,7 @@
     display: flex;
     width: 80%;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     background-color: #00114746;
     border: 1px solid grey;
@@ -25,11 +26,15 @@
     border-radius: 50%;
   }
 
-  h1 {
-    font-size: medium;
+  .card-username {
+    display: flex;
+    font-size: small;
+    padding: 10px
   }
 
   p {
     color: white;
     padding: 10px;
+    flex-wrap: wrap;
+    width:100%;
   }

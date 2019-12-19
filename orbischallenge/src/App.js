@@ -5,7 +5,7 @@ import { TwitList } from './components/card-list/twits-list.jsx'
 import { SearchBox } from './components/search-box/search-box.component'
 
 import './App.css';
-
+import axios from 'axios'
 
 class App extends Component {
   constructor() {
@@ -23,15 +23,12 @@ class App extends Component {
   }
 
 
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => response.json())
-    .then(users => this.setState({ monsters: users }))
+  async componentDidMount() {
+    const monsters = await axios.get('https://jsonplaceholder.typicode.com/posts')
     
-    
-    fetch('https://api.stocktwits.com/api/2/streams/trending.json')
-    .then(response => Array.from(response.json()))
-    .then(stocktwits => this.setState({ twits: stocktwits }))
+    const twits = await axios.get('https://api.stocktwits.com/api/2/streams/trending.json')
+
+    this.setState({...this.state, monsters, twits: twits.data.messages})
     
   }
 
@@ -40,6 +37,7 @@ class App extends Component {
     this.setState({ searchField: e.target.value });
   }
 
+
   render() {
     const { monsters, twits, searchField } = this.state; //destructuring, pulling properties off of this.state, and setting them to constants called monsters and searchField
 
@@ -47,16 +45,16 @@ class App extends Component {
     //   return monster[2];
     // });
 
-    const filteredMonsters = monsters.filter(monster => 
-        monster.title.toLowerCase().includes(searchField.toLowerCase())
-      )
+    // const filteredMonsters = monsters.filter(monster => 
+    //     monster.title.toLowerCase().includes(searchField.toLowerCase())
+    //   )
       
     const filteredTwits = twits.filter(twit => 
         twit.body.toLowerCase().includes(searchField.toLowerCase())
       )
 
       console.log("Monsters",monsters)
-      console.log("Filtered Twits",filteredTwits)
+      console.log("Twits", twits)
     return (
       <div className='App'>
         <h1>Stocktwits</h1>
@@ -64,7 +62,7 @@ class App extends Component {
           placeholder={ 'search..' }
           handleChange={ this.handleChange }
         />
-        <CardList monsters={filteredMonsters}/>
+        {/* <CardList monsters={filteredMonsters}/> */}
         <TwitList twits={filteredTwits}/>
         
       </div>

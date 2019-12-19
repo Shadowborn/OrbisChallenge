@@ -1,8 +1,9 @@
 .card-container {
     display: flex;
     width: 80%;
-    flex-direction: column;
-    background-color: #ffce73;
+    flex-direction: row;
+    align-items: center;
+    background-color: #00114746;
     border: 1px solid grey;
     border-radius: 5px;
     padding: 25px;
@@ -21,9 +22,14 @@
   img {
     width: 10%;
     display: flex;
+    border-radius: 50%;
   }
 
   h1 {
-    min-width: 80%;
     font-size: medium;
+  }
+
+  p {
+    color: white;
+    padding: 10px;
   }

@@ -20,7 +20,7 @@
   }
   
   img {
-    width: 10%;
+    min-width: 10%;
     display: flex;
     border-radius: 50%;
   }

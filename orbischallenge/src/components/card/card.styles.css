@@ -1,10 +1,12 @@
 .card-container {
     display: flex;
+    width: 20%;
     flex-direction: column;
-    background-color: #95dada;
+    background-color: #ffce73;
     border: 1px solid grey;
     border-radius: 5px;
     padding: 25px;
+    margin: 10px;
     cursor: pointer;
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;

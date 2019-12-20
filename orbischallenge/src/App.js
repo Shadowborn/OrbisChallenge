@@ -11,7 +11,6 @@ class App extends Component {
     super(); 
 
     this.state = {
-      monsters: [],
       twits: [],
       searchField: ''
     }
@@ -47,7 +46,9 @@ class App extends Component {
       console.log("Twits", twits)
     return (
       <div className='App'>
-        <h1>Stocktwits</h1>
+      <div className="header-container">
+         <img className="logo" alt="logo" src="https://api.stocktwits.com/assets/logo/StockTwits_WhitePNG-1752903d34f08fa6330eee51a5ab3c3582b2054d0f31bb6f16a87ffc7c7746af.png"/>
+       </div>
         <SearchBox
           placeholder={ 'search..' }
           handleChange={ this.handleChange }

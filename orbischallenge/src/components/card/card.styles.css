@@ -14,13 +14,14 @@
     backface-visibility: hidden;
     transform: translateZ(0);
     transition: transform 0.25s ease-out;
+    align-items: flex-end;
   }
   
   .card-container:hover {
     transform: scale(1.05);
   }
   
-  img {
+  .avatar {
     min-width: 10%;
     display: flex;
     border-radius: 50%;
@@ -38,10 +39,13 @@
     padding: 10px;
     flex-wrap: wrap;
     width:100%;
+    word-break: break-all;
+    height: 100%;
   }
   
   .card-header {
     display: flex;
     width: 80%;
     justify-content: space-between;
+    flex-wrap: wrap;
   }

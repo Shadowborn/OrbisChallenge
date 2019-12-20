@@ -43,3 +43,17 @@ h1 {
     transform: rotate(360deg);
   }
 }
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #02020bbf;
+  margin-bottom: 40px;
+}
+
+.logo {
+  display: flex;
+
+  width:40%
+}

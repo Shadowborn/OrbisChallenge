@@ -26,7 +26,7 @@ class App extends Component {
   async componentDidMount() {
     const monsters = await axios.get('https://jsonplaceholder.typicode.com/posts')
     
-    const twits = await axios.get('https://api.stocktwits.com/api/2/streams/trending.json')
+    const twits = await axios.get('https://orbis-twits.herokuapp.com/')
 
     this.setState({...this.state, monsters, twits: twits.data.messages})
     

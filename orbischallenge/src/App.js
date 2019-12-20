@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import { TwitList } from './components/card-list/twits-list.jsx'
 import { SearchBox } from './components/search-box/search-box.component'
-
+import LoadingSpinner from './components/loader/loading-spinner';
 import './App.css';
 import axios from 'axios'
 
@@ -12,7 +12,8 @@ class App extends Component {
 
     this.state = {
       twits: [],
-      searchField: ''
+      searchField: '',
+      loading: true
     }
   
 
@@ -20,13 +21,13 @@ class App extends Component {
 
 
   async componentDidMount() {
-    
+    this.setState({loading:true})
     const twits = await axios.get('https://orbis-twits.herokuapp.com')
 
     // const twits = await axios.get('https://api.stocktwits.com/api/2/streams/trending.json')
 
     this.setState({...this.state, twits: twits.data.messages})
-    
+    this.setState({loading:false})
   }
 
 
@@ -36,7 +37,7 @@ class App extends Component {
 
 
   render() {
-    const { twits, searchField } = this.state; 
+    const { twits, loading, searchField } = this.state; 
 
       
     const filteredTwits = twits.filter(twit => 
@@ -53,9 +54,11 @@ class App extends Component {
           placeholder={ 'search..' }
           handleChange={ this.handleChange }
         />
-       
+       {((loading === true) ?
+            <LoadingSpinner />
+            :
         <TwitList twits={filteredTwits}/>
-        
+       )}
       </div>
     );
   }

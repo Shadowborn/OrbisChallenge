@@ -6,7 +6,7 @@ import "./loader.css"
 const LoadingSpinner = () => (
     <div className='loader-div'>
         <Loader type="Puff" height={80} width={80} color='cyan' />
-        <h3 className='loading-message'>Loading Projects...</h3>
+        <h3 className='loading-message'>Loading Stocktwits...</h3>
     </div>
 )
 

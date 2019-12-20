@@ -52,6 +52,7 @@ class App extends Component {
           placeholder={ 'search..' }
           handleChange={ this.handleChange }
         />
+       
         <TwitList twits={filteredTwits}/>
         
       </div>

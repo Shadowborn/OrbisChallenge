@@ -1,6 +1,6 @@
 .card-container {
     display: flex;
-    width: 80%;
+    width: 30%;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;

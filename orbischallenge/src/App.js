@@ -26,8 +26,8 @@ class App extends Component {
 
     // const twits = await axios.get('https://api.stocktwits.com/api/2/streams/trending.json')
 
-    this.setState({...this.state, twits: twits.data.messages})
-    this.setState({loading:false})
+    this.setState({...this.state, twits: twits.data.messages, loading:false})
+    // this.setState({loading:false})
   }
 
 
